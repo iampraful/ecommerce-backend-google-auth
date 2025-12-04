@@ -6,10 +6,10 @@ const cors = require('cors');
 const session = require('express-session');
 const { v4: uuidv4 } = require('uuid');
 
-const productRoutes = require('./src/routes/product.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const productRoutes = require('./src/routes/product.routes');
+const errorHandler = require('./src/middlewares/error.middleware');
 // const orderRoutes = require('./src/routes/order.routes');
-// const { errorHandler } = require('./src/middlewares/error.middleware');
 
 const app = express();
 
@@ -51,6 +51,6 @@ app.get('/profile', (req, res) => {
 app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime() }));
 
 // Error handler (should be last)
-// app.use(errorHandler);
+app.use(errorHandler);
 
 module.exports = app;
