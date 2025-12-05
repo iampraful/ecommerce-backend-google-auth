@@ -165,14 +165,14 @@ GET /api/products
 ```json
 POST /api/products/createProduct
 {
-  "title": "Samsung Galaxy S24",
+  "title": "Xiaomi 15",
   "description": "Flagship phone",
   "category": "mobiles",
-  "price": 79999,
+  "price": 89999,
   "images": [
     {
-      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24.jpg",
-      "key": "Samsung-Galaxy-S24.jpg",
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/xiaomi15.jpg",
+      "key": "xiaomi-15.jpg",
       "order": 0
     }
   ]
