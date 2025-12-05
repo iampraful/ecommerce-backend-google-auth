@@ -35,6 +35,10 @@ This fulfills all requirements of the assignment.
   /middlewares
   /services
   /utils
+/postman
+  ecommerce-api.postman_collection.json
+/seed-data
+  products.json
 app.js
 server.js
 .env.example
@@ -101,6 +105,37 @@ npm run dev
 
 Server runs at:  
 `http://localhost:4000`
+
+---
+
+# 🌱 Database Seeding (Products Only)
+
+To test the project, sample products must be inserted.
+
+mongoimport --db ecommerce --collection products --file seed-data/products.json
+
+This inserts all demo products with S3 image URLs.
+
+---
+
+# 📬 Postman Collection
+
+A ready-to-import Postman collection is included:
+
+```
+/postman/ecommerce-api.postman_collection.json
+```
+
+Import into Postman:
+
+**Postman → Import → File → select the JSON file**
+
+This includes:
+
+- Google OAuth login instructions
+- Get products
+- Place order
+- Get order history
 
 ---
 
