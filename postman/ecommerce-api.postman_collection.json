@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "7ee09b5b-1282-4666-82f6-519cef5e1cc7",
+		"name": "Ecommerce Backend - Products",
+		"description": "Collection for product endpoints: create (multipart upload to S3), list, update images, delete images, plus Google auth stub.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20509500"
+	},
+	"item": [
+		{
+			"name": "Auth - Google (stub)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"idToken\": \"<PASTE_GOOGLE_ID_TOKEN_HERE>\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/auth/google",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"google"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Update Images (reorder / append)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "order",
+							"value": "[{\"key\":\"products/uuid1\",\"order\":1},{\"key\":\"products/uuid2\",\"order\":0}]",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/products/{{productId}}/images",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"{{productId}}",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Delete Images",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"keys\": [\"products/uuid1\",\"products/uuid2\"]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/products/{{productId}}/images",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"{{productId}}",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products - Create (multipart)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Samsung Galaxy S24\",\r\n    \"description\": \"Flagship phone with S3 images\",\r\n    \"category\": \"mobiles\",\r\n    \"price\": 69999,\r\n    \"images\": [\r\n      {\r\n        \"url\": \"https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24.jpg\",\r\n        \"key\": \"products/Samsung-Galaxy-S24.jpg\",\r\n        \"order\": 0\r\n      },\r\n      {\r\n        \"url\": \"https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24-sp.jpg\",\r\n        \"key\": \"products/Samsung-Galaxy-S24-sp.jpg\",\r\n        \"order\": 1\r\n      }\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/products/createProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"products",
+						"createProduct"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:4000/api/products \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"title\": \"Samsung Galaxy S24\",\r\n    \"description\": \"Flagship phone with S3 images\",\r\n    \"category\": \"mobiles\",\r\n    \"price\": 79999,\r\n    \"images\": [\r\n      {\r\n        \"url\": \"https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24.jpg\",\r\n        \"key\": \"iphone-15-pink\",\r\n        \"order\": 0\r\n      },\r\n      {\r\n        \"url\": \"https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24-sp.jpg\",\r\n        \"key\": \"iphone-15\",\r\n        \"order\": 1\r\n      }\r\n    ]\r\n  }'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "connect.sid=s%3Ae7123c88-eb0f-491f-b2a9-9efb6309cee6.kizqbtCvEuNUqJjO%2B%2F30gNJddmD1C5in4bWibgJ1hxQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\r\n      { \"productId\": \"69317b24fb914808ada72674\", \"quantity\": 1 },\r\n      { \"productId\": \"69317a2752b8545682c66545\", \"quantity\": 1 }\r\n    ],\r\n    \"metadata\": { \"notes\": \"Apple Phone and Air Pods\" }\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"orders"
+					]
+				},
+				"description": "Generated from cURL: curl -b cookies.txt -X POST http://localhost:4000/api/orders \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"items\": [\r\n      { \"productId\": \"69316f1f172d1277d5fab87c\", \"quantity\": 1 },\r\n      { \"productId\": \"69316f32172d1277d5fab885\", \"quantity\": 2 }\r\n    ],\r\n    \"metadata\": { \"notes\": \"Test order via dev login\" }\r\n  }'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Temp - Dev Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/dev/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"dev",
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl -i -c cookies.txt -X POST http://localhost:4000/dev/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders - User Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "cookies.txt"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"orders"
+					]
+				},
+				"description": "Generated from cURL: curl -b cookies.txt \\\r\n  http://localhost:4000/api/orders\r\n"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:4000"
+		}
+	]
+}

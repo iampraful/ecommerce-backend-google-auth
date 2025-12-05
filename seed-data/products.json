@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "693179ba52b8545682c6653d"
+  },
+  "title": "OnePlus Nord 4",
+  "description": "Smooth performance, fast charging, and premium build quality.",
+  "category": "mobiles",
+  "price": 29999,
+  "images": [
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/OnePlus-Nord-4.jpg",
+      "key": "products/OnePlus-Nord4-1.jpg",
+      "order": 0,
+      "_id": {
+        "$oid": "693179ba52b8545682c6653e"
+      }
+    },
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/OnePlus-Nord-4-black.jpg",
+      "key": "products/OnePlus-Nord4-2.jpg",
+      "order": 1,
+      "_id": {
+        "$oid": "693179ba52b8545682c6653f"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-04T12:08:26.606Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693179f852b8545682c66541"
+  },
+  "title": "MacBook Air M2",
+  "description": "Ultra-light laptop with exceptional battery life and M2 performance.",
+  "category": "laptops",
+  "price": 129999,
+  "images": [
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/MacBook-Air-M2.jpg",
+      "key": "products/MacBook-Air-M2-1.jpg",
+      "order": 0,
+      "_id": {
+        "$oid": "693179f852b8545682c66542"
+      }
+    },
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/MacBook-Air-M2-sp.jpg",
+      "key": "products/MacBook-Air-M2-2.jpg",
+      "order": 1,
+      "_id": {
+        "$oid": "693179f852b8545682c66543"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-04T12:09:28.192Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69317a2752b8545682c66545"
+  },
+  "title": "Apple AirPods Pro",
+  "description": "Premium earbuds with active noise cancellation and spatial audio.",
+  "category": "audio",
+  "price": 17999,
+  "images": [
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Apple-AirPods-Pro.jpg",
+      "key": "products/AirPods-Pro-1.jpg",
+      "order": 0,
+      "_id": {
+        "$oid": "69317a2752b8545682c66546"
+      }
+    },
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Apple-AirPods-Pro-sp.jpg",
+      "key": "products/AirPods-Pro-2.jpg",
+      "order": 1,
+      "_id": {
+        "$oid": "69317a2752b8545682c66547"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-04T12:10:15.668Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69317b24fb914808ada72674"
+  },
+  "title": "Apple iPhone 15",
+  "description": "Premium iPhone with advanced camera, A16 performance, and stunning design.",
+  "category": "mobiles",
+  "price": 79999,
+  "images": [
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/iphone-15.jpg",
+      "key": "products/iPhone-15-1.jpg",
+      "order": 0,
+      "_id": {
+        "$oid": "69317b24fb914808ada72675"
+      }
+    },
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/iphone-15-pink.jpg",
+      "key": "products/iPhone-15-2.jpg",
+      "order": 1,
+      "_id": {
+        "$oid": "69317b24fb914808ada72676"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-04T12:14:28.881Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69317b74fb914808ada72678"
+  },
+  "title": "Samsung Galaxy S24",
+  "description": "Flagship phone with S3 images",
+  "category": "mobiles",
+  "price": 69999,
+  "images": [
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24.jpg",
+      "key": "products/Samsung-Galaxy-S24.jpg",
+      "order": 0,
+      "_id": {
+        "$oid": "69317b74fb914808ada72679"
+      }
+    },
+    {
+      "url": "https://ps-ecommerce-products.s3.ap-south-1.amazonaws.com/products/Samsung-Galaxy-S24-sp.jpg",
+      "key": "products/Samsung-Galaxy-S24-sp.jpg",
+      "order": 1,
+      "_id": {
+        "$oid": "69317b74fb914808ada7267a"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-12-04T12:15:48.015Z"
+  },
+  "__v": 0
+}]
