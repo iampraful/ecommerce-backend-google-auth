@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const Order = require('../models/Order');
 const generateOrderRef = require('../utils/generateOrderRef');
+const { sendOrderConfirmation } = require('../services/mail.service');
 
 /**
  * Place an order
@@ -115,6 +116,20 @@ const placeOrder = async (req, res, next) => {
       status: 'pending',
       metadata: metadata || {},
     });
+
+    try {
+      if (user.email) {
+        await sendOrderConfirmation(user.email, {
+          orderRef: order.orderRef,
+          items: order.items,
+          total: order.total,
+          createdAt: order.createdAt
+        });
+        console.log("Order confirmation email sent to", user.email);
+      }
+    } catch (err) {
+      console.error("Email error:", err.message);
+    }
 
     return res.status(200).json({
       success: true,
