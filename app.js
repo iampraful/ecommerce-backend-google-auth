@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Session middleware (NEEDED for Google OAuth)
 app.use(session({
   genid: () => uuidv4(),
-  secret: process.env.SESSION_SECRET || 'change_this_secret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -47,6 +47,7 @@ app.get('/profile', (req, res) => {
   res.send(`<h3>Logged in as ${u.name}</h3><p>${u.email}</p><img src="${u.picture || ''}" width="100"/><p><a href="/api/auth/logout">Logout</a></p>`);
 });
 
+// FOR dev purpose
 app.post('/dev/login', (req, res) => {
   req.session.user = {
     id: '000000000000000000000001',
@@ -63,7 +64,6 @@ app.use((req, res, next) => {
   console.log('Headers Cookie:', req.headers.cookie); // shows Cookie header sent by client
   console.log('Session object present?:', !!req.session);
   if (req.session) {
-    // print only keys so the console isn't noisy
     console.log('Session keys:', Object.keys(req.session));
   }
   next();

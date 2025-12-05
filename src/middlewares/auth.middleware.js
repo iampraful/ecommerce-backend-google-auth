@@ -1,5 +1,3 @@
-// src/middlewares/auth.middleware.js
-
 function ensureAuthenticated(req, res, next) {
   if (req.session && req.session.user) {
     // Attach user info for convenience (important for orders)
